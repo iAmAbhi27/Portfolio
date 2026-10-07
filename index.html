@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abhishek Nayal · Developer Portfolio</title>
+  <meta name="description" content="Full Stack Developer building scalable, multi-tenant web platforms with Python, Rails, Spring Boot and React. Projects, achievements and experience." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Abhishek Nayal · Developer Portfolio" />
+  <meta property="og:description" content="Full Stack Developer building scalable, multi-tenant web platforms with Python, Rails, Spring Boot and React." />
+  <meta name="theme-color" content="#f6f1e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='8' fill='%23d9a441'/%3E%3Cg fill='%23d98f8c'%3E%3Cellipse cx='32' cy='14' rx='8' ry='13'/%3E%3Cellipse cx='32' cy='50' rx='8' ry='13'/%3E%3Cellipse cx='14' cy='32' rx='13' ry='8'/%3E%3Cellipse cx='50' cy='32' rx='13' ry='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d9a441'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#home" aria-label="Home"><span class="brand-mark"></span><span id="brandName">Your Name</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    <nav id="navLinks" class="nav-links" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero" data-flower="0.5,0.02,1">
+      <div class="wrap hero-inner">
+        <p class="eyebrow reveal" id="greeting"></p>
+        <h1 class="hero-name reveal" id="heroName"></h1>
+        <p class="hero-role reveal" id="heroRole"></p>
+        <p class="hero-tag reveal" id="heroTag"></p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#projects">See my work</a>
+          <a class="btn btn-ghost" href="#contact">Say hello</a>
+          <a class="btn btn-ghost" id="resumeBtn" href="#" hidden download>Résumé</a>
+        </div>
+        <ul class="stats reveal" id="stats"></ul>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="Scroll to about"><span></span></a>
+    </section>
+
+    <section id="about" class="section" data-flower="-0.62,0.05,0.6">
+      <div class="wrap about-grid">
+        <div class="about-spacer" aria-hidden="true"></div>
+        <div>
+          <p class="eyebrow reveal">About</p>
+          <h2 class="reveal">A little about me</h2>
+          <div id="aboutText" class="prose reveal"></div>
+          <dl class="facts reveal" id="facts"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects" data-flower="0,-0.3,0.95">
+      <div class="wrap">
+        <p class="eyebrow reveal">Selected work</p>
+        <h2 class="reveal">Projects in bloom</h2>
+        <p class="lead reveal">Drag the ring, use the arrows, or just wait. Tap any petal to open the story behind it.</p>
+      </div>
+      <div class="ring-stage reveal" id="ringStage">
+        <div class="ring-scene" id="ringScene" role="list" aria-label="Projects"></div>
+      </div>
+      <div class="ring-controls">
+        <button class="round" id="prevBtn" aria-label="Previous project">←</button>
+        <div class="ring-title" id="ringTitle" aria-live="polite"></div>
+        <button class="round" id="nextBtn" aria-label="Next project">→</button>
+      </div>
+    </section>
+
+    <section id="skills" class="section" data-flower="0.68,0.1,0.6">
+      <div class="wrap">
+        <p class="eyebrow reveal">Toolbox</p>
+        <h2 class="reveal">What I work with</h2>
+        <div class="skills" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section" data-flower="-0.68,0.1,0.6">
+      <div class="wrap">
+        <p class="eyebrow reveal">Milestones</p>
+        <h2 class="reveal">Achievements</h2>
+        <div class="ach-grid" id="achGrid"></div>
+      </div>
+    </section>
+
+    <section id="journey" class="section" data-flower="0.84,0.05,0.5">
+      <div class="wrap narrow">
+        <p class="eyebrow reveal">Path so far</p>
+        <h2 class="reveal">Experience &amp; education</h2>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" data-flower="-0.55,0.05,0.75">
+      <div class="wrap contact-grid">
+        <div class="contact-spacer" aria-hidden="true"></div>
+        <div class="contact-card reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's grow something together</h2>
+          <p class="lead">Have a project, a role or just a question? I'd love to hear from you.</p>
+          <div class="mail-row">
+            <a id="mailLink" class="mail" href="#"></a>
+            <button class="btn btn-ghost small" id="copyBtn" type="button">Copy</button>
+          </div>
+          <form id="contactForm" novalidate>
+            <label>Your name<input name="name" autocomplete="name" required /></label>
+            <label>Your email<input name="email" type="email" autocomplete="email" required /></label>
+            <label>Message<textarea name="message" rows="4" required></textarea></label>
+            <p class="form-msg" id="formMsg" role="status"></p>
+            <button class="btn btn-primary" type="submit">Open in my mail app</button>
+          </form>
+          <ul class="socials" id="socials"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> <span id="footName"></span>. Made by hand with care.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-x" data-close aria-label="Close">×</button>
+      <div class="modal-cover" id="mCover"></div>
+      <div class="modal-body">
+        <p class="eyebrow" id="mKind"></p>
+        <h3 id="mTitle"></h3>
+        <p id="mDesc"></p>
+        <ul class="checks" id="mList"></ul>
+        <div class="chips" id="mTech"></div>
+        <div class="modal-links" id="mLinks"></div>
+      </div>
+    </article>
+  </div>
+
+  <noscript><p class="noscript">This portfolio uses JavaScript for its 3D scenes and content.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
